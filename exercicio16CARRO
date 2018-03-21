@@ -1,0 +1,83 @@
+
+public class Carro
+{
+	private String cor;
+	private String capMotor;
+	private double velocidade;
+	
+	public double aumentarVelocidade(double vel)
+	{
+		double limite;
+		double aumento = 0.0;
+		double velocidadeAtual;
+		
+		velocidadeAtual = getVelocidade();
+		aumento = velocidadeAtual+vel;
+		double capMotorD = Double.parseDouble(capMotor);
+		limite = capMotorD*110;
+		
+		if(vel<0)
+		{	
+			System.out.println("A quantidade de velocidade informada nao pode ser negativa");
+			return -1;
+		}
+		//Inserir validação de aumento de vel superior ao limite
+		if(aumento>limite)
+		{
+			System.out.println("O motor nao suporta a velocidade inserida");
+			return -2;
+		}
+		return aumento;
+	}
+	public double reduzirVelocidade(double vel)
+	{
+		double velocidadeAtual;
+		double reducao;
+		
+		velocidadeAtual = getVelocidade();
+		reducao = vel-velocidadeAtual;
+		
+		if(vel >= 60)
+		{
+			System.out.println("Air-Bag acionado, valor de redução de velocidade não pode ser maior ou igual a 60");
+			return -1;
+		}
+		if(vel<0)
+		{	
+			System.out.println("A quantidade de velocidade informada nao pode ser negativa");
+			return -2;
+		}
+		if(reducao<0)
+		{
+			System.out.println("A velocidade nao pode ser negativa");
+			return -3;
+		}
+		return reducao;
+	}
+	public String getCor()
+	{
+		return cor;
+	}
+	public void setCor(String cor) 
+	{
+		this.cor = cor;
+	}
+	public String getCapMotor()
+	{
+		return capMotor;
+	}
+	public void setCapMotor(String capMotor) 
+	{
+		this.capMotor = capMotor;
+	}
+	public double getVelocidade() 
+	{
+		return velocidade;
+	}
+	public void setVelocidade(double velocidade)
+	{
+		this.velocidade = velocidade;
+	}
+	
+	
+}
