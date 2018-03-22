@@ -1,0 +1,108 @@
+__________________MAIN________________________
+import java.io.ObjectInputStream.GetField;
+
+import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
+
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Curso c1 = new Curso(111,"Ciencia da Computacao");//alimentando o objeto
+		Professor p1 = new Professor(11111,"Jão");
+		c1.setProf(p1);
+		c1.exibeDados();
+		
+		System.out.println("-----------------------------");
+		
+		Curso c2 = new Curso(222,"Biologia");
+		Professor p2 = new Professor(22222,"José");
+		c2.setProf(p2);
+		c2.exibeDados();
+		
+		System.out.println("-----------------------------");
+		
+		Curso c3 = new Curso(333,"Engenharia");
+		Professor p3 = new Professor(33333,"Manolo");
+		c3.setProf(p3);
+		c3.exibeDados();
+	}
+
+}
+______________CURSO_______________________
+public class Curso {
+	private int numCurso;
+	private String nomeCurso;
+	private Professor prof;
+	
+	//Construtor
+	public Curso(int numC, String nomeC){ //Apenas os parametros com os atributos dessa classe
+		numCurso = numC;
+		nomeCurso = nomeC;
+	}
+	
+	public int getNumCurso() {
+		return numCurso;
+	}
+	
+	public void setNumCurso(int curso) {
+		this.numCurso = curso;
+	}
+	
+	public String getNome() {
+		return nomeCurso;
+	}
+	
+	public void setNome(String nome) {
+		this.nomeCurso = nome;
+	}
+	
+	public Professor getProf() {
+		return prof;
+	}
+	
+	public void setProf(Professor prof) {
+		this.prof = prof;
+	}
+	
+	public void exibeDados(){	
+		 System.out.println("Numero do curso: " + getNumCurso());
+		 System.out.println("Nome do curso: " + getNome());
+		 System.out.println("Nome do professor: " + getProf().getNome());
+		 System.out.println("Numero do professor: "+getProf().getNum());
+	}
+	
+}
+____________________PROFESSOR___________________
+
+public class Professor {
+	private int numProfessor;
+	private String nomeProfessor;
+	
+	//Construtor 
+	public Professor(int numProf,String nomeProf){ //Apenas os parametros dessa classe
+		this.setNum(numProf);
+		this.setNome(nomeProf);
+	}
+	
+	public int getNum() {
+		return numProfessor;
+	}
+	
+	public void setNum(int n) {
+		this.numProfessor = n;
+	}
+	
+	public String getNome() {
+		return nomeProfessor;
+	}
+	
+	public void setNome(String nome) {
+		this.nomeProfessor = nome;
+	}
+
+}
