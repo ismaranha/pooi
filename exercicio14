@@ -1,0 +1,59 @@
+______________________MAIN________________________
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Porta p = new Porta();
+		
+		p.pinta("Azul");
+		p.abre();
+		
+		System.out.println("A cor da porta é " + p.getCor());	
+		if(p.estaAberta()==false)
+			System.out.println("A porta está Fechada");
+		else
+			System.out.println("A porta está Aberta");
+		
+		p.pinta("Vermelho");
+		p.fecha();
+		
+		System.out.println("A cor da porta é " + p.getCor());
+		if(p.estaAberta()==false)
+			System.out.println("A porta está Fechada");
+		else
+			System.out.println("A porta está Aberta");
+
+		
+	}
+
+}
+______________________________PORTA____________________________
+
+public class Porta {
+	private boolean aberta;
+	private String cor;
+	
+	public void abre(){
+		aberta = true;
+	}
+	
+	public void fecha(){
+		aberta = false;
+	}
+	
+	public void pinta(String s){
+		this.cor = s;	
+	}
+	
+	public boolean estaAberta(){
+		return this.aberta;
+	}
+	
+	public String getCor(){
+		return this.cor;
+	}
+	
+}
